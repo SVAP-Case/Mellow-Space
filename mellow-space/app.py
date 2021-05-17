@@ -22,7 +22,7 @@ class Todo(db.Model):
 
 @app.route("/")
 def home():
-    return render_template("base.html")
+    return render_template("main_page.html")
 
 @app.route("/login",methods=["POST","GET"])
 def login():
