@@ -7,6 +7,7 @@ body{
     font-family: sans-serif;
   
     background: #34495e;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 .box{
   
@@ -34,7 +35,7 @@ body{
   
     font-weight: 500;
 }
-.box input[type = "email"],.box input[type = "password"]{
+.box input[type = "email"],.box input[type = "password"],.box input[type = "text"]{
   
     border:0;
   
@@ -60,7 +61,7 @@ body{
   
     transition: 0.25s;
 }
-.box input[type = "email"]:focus,.box input[type = "password"]:focus{
+.box input[type = "email"]:focus,.box input[type = "password"]:focus,.box input[type = "text"]:focus{
     width: 280px;
   
     border-color: #2ecc71;
