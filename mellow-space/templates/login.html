@@ -1,29 +1,23 @@
-{% extends "base.html" %}
-
-{% block content %}
-<div class="column is-4 is-offset-4">
-    <h3 class="title">Login</h3>
-    <div class="box">
-        {% with messages = get_flashed_messages() %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>َLogin</title>
+        <link rel="stylesheet" href="../static/login.css">
+    </head>
+    <body>
+        <form class="box" action="/login" method="POST" autocomplete="off">
+            {% with messages = get_flashed_messages() %}
             {% if messages %}
-                <div class="notification is-danger">
-                    {{ messages[0] }}
-                </div>
+            <span style="background-color: red; padding: 10px 10px; font-size:smaller; font-family: monospace;">
+                {{ messages[0] }}
+            </span>
             {% endif %}
-        {% endwith %}
-        <form method="POST" action="/login">
-            <div class="field">
-                <div class="control">
-                    <input class="input is-large" type="email" name="em" placeholder="Your Email" autofocus="">
-                </div>
-            </div>
-            <div class="field">
-                <div class="control">
-                    <input class="input is-large" type="password" name="pw" placeholder="Your Password">
-                </div>
-            </div>
-            <button class="button is-block is-info is-large is-fullwidth">Login</button>
+            {% endwith %}
+            <h1>Login</h1>
+            <input type="email" name="em" placeholder="Email" autofocus="">
+            <input type="password" name="pw" placeholder="Password">
+            <input type="submit" value="Enter Space">
         </form>
-    </div>
-</div>
-{% endblock %}
+    </body>
+</html>

@@ -1,3 +1,7 @@
+html{
+  scroll-behavior:smooth;
+}
+
 .body {
   background-repeat: no-repeat;
   background-image: url("1.jpg");
@@ -8,7 +12,7 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 #heading {
@@ -60,7 +64,7 @@
   border: 1px solid green;
   color: white; 
   border-radius: 10px;
-  margin: 8px;
+  margin: 4px;
   padding: 10px 24px;
   cursor: pointer;
   float: right;
@@ -79,19 +83,20 @@
 }
 
 .btn button:hover {
-  background-color: #008cff;
+  background-color: #0e3352;
 }
 
 #intro {
+  align-items: center;
   color: rgb(71, 70, 13);
-  font-family: Comic Sans MS;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 18px;
   text-align: left;
   margin-top: 100px;
   margin-left: 50px;
   border-radius: 20px;
   border: 8px solid #ad2121;
-  padding: 3px; 
+  padding: 3px 50px; 
   width: 900px;
   height:240px;
   
