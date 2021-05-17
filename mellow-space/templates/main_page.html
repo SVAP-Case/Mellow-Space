@@ -2,20 +2,22 @@
 <html>
 <head>
 	<title>Welcome To Mellow Space</title>
-	<link rel="stylesheet" type="text/css" href="../static/main_page.css">
+	<link rel="stylesheet" type="text/css" href="main_page.css">
 </head>
 <body class="body">
+
 	<ul class="menu">
-		<li class="menubtn"><a href="#" style="color: white;">Home</a></li>
-		<li class="menubtn"><a href="#" style="color: white;">Features</a></li>
-		<li class="menubtn"><a href="#" style="color: white;">Contact</a></li>
-		<li class="menubtn"><a href="#" style="color: white;">About</a></li>
+		<li class="menubtn"><a href=".body" style="color: white;">Home</a></li>
+		<li class="menubtn"><a href="#info" style="color: white;">Features</a></li>
+		<li class="menubtn"><a href="#contact" style="color: white;">Contact</a></li>
 		<span class="btn">
-			<a href="/signup"><button>Sign Up</button></a>
-			<a href="/login"><button>Log In</button></a>
+			<a href=""><button>Sign Up</button></a>
+			<a href=""><button>Log In</button></a>
 		</span>
 	</ul>
 	<br>
+	<span><p id="heading">Your own Space- Mellow Space</p></span>
+
 	<div id="intro">
 			<p class="name">Just think of a place that helps you be calm... </p>
 			This is <span id="name">Mellow Space.</span> 
@@ -25,16 +27,39 @@
 			<br>
 			Feeling low for some reason? Or just in the mood to chillax? 			
 	</div>
+
 	<div id="info">
-		<p>You'll be getting access to:</p>
+		<p>We'll be providing you:</p>
 		<ul>
 			<li>A Devised test from certified sources to get to know your mood</li>
+			<br>
 			<li>Curated plalists to bust the stress or frustation or even just relax (～￣▽￣)～</li>
+			<br>
 			<li>Or just a Space for You to be You, a Space where you can just bring out your talents</li>
 		</ul>
 	</div>
-	<div id="contact">
 
-	</div>
+	<div id="contact">
+		<div style="text-align:center">
+		  <h2>Contact Us</h2>
+		  <p>Swing by for a cup of coffee, or leave us a message:</p>
+		</div>
+		<div class="row">
+		  <div class="column">
+			<img src="3.gif" style="width:100%" alt="Nope can't load">
+		  </div>
+		  <div class="column">
+			<form action="">
+			  <label for="fname">First Name</label>
+			  <input type="text" id="fname" name="firstname" placeholder="Your name..">
+			  <label for="lname">Last Name</label>
+			  <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+			  <label for="subject">Subject</label>
+			  <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+			  <input type="submit" value="Submit">
+			</form>
+		  </div>
+		</div>
+	  </div>
 </body>
 </html>
