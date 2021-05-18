@@ -10,7 +10,7 @@ First, clone this repository
 
 (First open the terminal and navigate in the directory in which you want to clone the project)
 
-    $ https://github.com/SVAP-Case/Mellow-Space.git
+    $ git clone https://github.com/SVAP-Case/Mellow-Space.git
     $ cd mellow-space
 
 After, install all necessary modules to run:
