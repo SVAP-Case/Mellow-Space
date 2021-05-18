@@ -15,12 +15,6 @@ class users(db.Model):
     email=db.Column(db.String(100))
     password=db.Column(db.String(100))
 
-class Todo(db.Model):
-    id=db.Column(db.Integer,primary_key=True)
-    title=db.Column(db.String(100))
-    complete=db.Column(db.Boolean)
-    user=db.Column(db.Integer)
-
 @app.route("/")
 def home():
     return render_template("main_page.html")
@@ -71,33 +65,10 @@ def user():
     if "email" in session:
         email=session["email"]
         nm=users.query.filter_by(email=email).first()
-        my_todo=Todo.query.filter_by(user=email).all()
-        return render_template("user.html",todo_list=my_todo,usr=nm.first_name)
+        return render_template("user.html",usr=nm.first_name)
     else:
         flash("You are not logged in")
         return redirect(url_for("login"))
-
-@app.route("/add",methods=["POST"])
-def add():
-    title=request.form.get("title")
-    new_todo=Todo(title=title,complete=False,user=session["email"])
-    db.session.add(new_todo)
-    db.session.commit()
-    return redirect(url_for("user"))
-
-@app.route("/update/<int:todo_id>")
-def update(todo_id):
-    todo=Todo.query.filter_by(id=todo_id).first()
-    todo.complete=not todo.complete
-    db.session.commit()
-    return redirect(url_for("user"))
-
-@app.route("/delete/<int:todo_id>")
-def delete(todo_id):
-    todo=Todo.query.filter_by(id=todo_id).first()
-    db.session.delete(todo)
-    db.session.commit()
-    return redirect(url_for("user"))
 
 @app.route("/game")
 def game():
