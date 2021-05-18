@@ -11,13 +11,14 @@
         <form class="box" style="box-shadow: 0 8px 16px  10px rgba(240, 221, 221, 0.897);" action="/signup" method="POST" autocomplete="off">
             {% with messages = get_flashed_messages() %}
             {% if messages %}
-            <span style="background-color: red; padding: 10px 10px; font-size:smaller; font-family: monospace;">
+            <span style="color: white; background-color: rgb(209, 65, 65); padding: 10px 10px; font-size:smaller; font-family: monospace;">
                 {{ messages[0] }}
             </span>
             {% endif %}
             {% endwith %}
             <h1>SignUp</h1>
-            <input type="text" name="nms" placeholder="Name" autofocus="">
+            <input type="text" name="nms" placeholder="First Name" autofocus="">
+            <input type="text" name="nmsl" placeholder="Last Name" autofocus="">
             <input type="email" name="ems" placeholder="Email" autofocus="">
             <input type="password" name="pss" placeholder="Password" pattern=".{8,}" required title="Minimum 8 characters required">
             <input type="submit" value="Register">

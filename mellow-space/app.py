@@ -10,7 +10,8 @@ db=SQLAlchemy(app)
 
 class users(db.Model):
     id=db.Column(db.Integer,primary_key=True)
-    name=db.Column(db.String(100))
+    first_name=db.Column(db.String(100))
+    last_name=db.Column(db.String(100))
     email=db.Column(db.String(100))
     password=db.Column(db.String(100))
 
@@ -45,14 +46,15 @@ def login():
 @app.route("/signup",methods=["POST","GET"])
 def signup():
     if request.method=="POST":
-        name=request.form["nms"]
+        fname=request.form["nms"]
+        lname=request.form["nmsl"]
         em=request.form["ems"]
         pas=request.form["pss"]
         for l in users.query.all():
             if em==l.email:
                 flash("Account already present..")
                 return redirect(url_for("login"))
-        new_user=users(name=name,email=em,password=generate_password_hash(pas))
+        new_user=users(first_name=fname,last_name=lname,email=em,password=generate_password_hash(pas))
         db.session.add(new_user)
         db.session.commit()
         flash("Account created succesfully..Login now")
@@ -70,7 +72,7 @@ def user():
         email=session["email"]
         nm=users.query.filter_by(email=email).first()
         my_todo=Todo.query.filter_by(user=email).all()
-        return render_template("user.html",todo_list=my_todo,usr=nm.name)
+        return render_template("user.html",todo_list=my_todo,usr=nm.first_name)
     else:
         flash("You are not logged in")
         return redirect(url_for("login"))
