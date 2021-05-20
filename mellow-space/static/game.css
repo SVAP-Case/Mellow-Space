@@ -1,5 +1,5 @@
 body {
-    background-image: linear-gradient(to right, rgb(184, 68, 68), rgb(53, 53, 184),green);
+    
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -26,20 +26,20 @@ body {
     float: right;
 }
 
-#header {
-    background-color: white;
-}
+
 
 .header {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-style: oblique;
     font-weight:bolder;
     font-size: 1.8rem;
-    color: salmon;
+    color: black;
     text-align: center;
     margin-top: 1em;
 }
-
+#header {
+    background-color: white;
+}
 body section p{
     color: rgb(0, 153, 255);
     font-size: 1.4em;
