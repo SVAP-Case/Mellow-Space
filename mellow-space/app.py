@@ -14,7 +14,6 @@ app.config['MAIL_PASSWORD'] = 'zgczgaqggfmdirou'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_MAX_EMAILS']=1
-app.config['MAIL_SUPRESS_SEND']=False
 mail = Mail(app)
 db=SQLAlchemy(app)
 
@@ -80,6 +79,13 @@ def user():
         flash("You are not logged in")
         return redirect(url_for("login"))
 
+@app.route("/mood_test")
+def mood_test():
+    return render_template("mood_tester.html")
+
+@app.route("/music")
+def music():
+    return render_template("music.html")
 
 @app.route("/game")
 def game():
@@ -87,12 +93,17 @@ def game():
 
 @app.route("/mailer")
 def mailer():
-    msg = Message('Hello', sender = 'mellow.space.1@gmail.com', recipients = ['prackode@gmail.com'])
-    msg.body = "Hello Flask message sent from Flask-Mail"
-    mail.send(msg)
-    
-    flash("Mail Sent Succesfully...")
-    return redirect(url_for("user"))
+    email=None
+    if "email" in session:
+        em=session["email"]
+        msg = Message('Hello', sender = 'mellow.space.1@gmail.com', recipients = ['prackode@gmail.com'])
+        msg.body = "Hello Flask message sent from Flask-Mail"
+        mail.send(msg)
+        flash("Mail Sent Succesfully...")
+        return redirect(url_for("user"))
+    else:
+        flash("You are not logged in")
+        return redirect(url_for("login"))
 
 @app.route("/logout")
 def logout():
