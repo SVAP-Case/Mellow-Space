@@ -1,11 +1,21 @@
 from flask import Flask,redirect,url_for,render_template,request,session,flash
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash,check_password_hash
+from flask_mail import Mail, Message
 
 app=Flask(__name__)
-app.secret_key="hello"
+app.secret_key="it's_not_the_actual_one"
 app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///db.sqlite3'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
+app.config['MAIL_SERVER']='smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = 'mellow.space.1@gmail.com'
+app.config['MAIL_PASSWORD'] = 'zgczgaqggfmdirou'
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_MAX_EMAILS']=1
+app.config['MAIL_SUPRESS_SEND']=False
+mail = Mail(app)
 db=SQLAlchemy(app)
 
 class users(db.Model):
@@ -70,9 +80,19 @@ def user():
         flash("You are not logged in")
         return redirect(url_for("login"))
 
+
 @app.route("/game")
 def game():
     return render_template("game.html")
+
+@app.route("/mailer")
+def mailer():
+    msg = Message('Hello', sender = 'mellow.space.1@gmail.com', recipients = ['prackode@gmail.com'])
+    msg.body = "Hello Flask message sent from Flask-Mail"
+    mail.send(msg)
+    
+    flash("Mail Sent Succesfully...")
+    return redirect(url_for("user"))
 
 @app.route("/logout")
 def logout():

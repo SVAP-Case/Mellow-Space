@@ -6,8 +6,8 @@
         <link rel="stylesheet" href="../static/login.css">
     </head>
     <body>
-        <button style="font-family:fantasy; font-size: 15px; background-color:whitesmoke; padding: 5px 15px; float: left; margin: 20px; border-radius: 10px; box-shadow: 0 8px 16px  0;"><a href="/" style="text-decoration: none;">Home</a></button>
-        <button style="font-family:fantasy; font-size: 15px;  background-color:whitesmoke; padding: 5px 15px; float: right; margin: 20px; border-radius: 10px; box-shadow: 0 8px 16px  0;"><a href="/login" style="text-decoration: none;">Login</a></button>
+        <button style="font-family:fantasy; font-size: 15px; background-color:whitesmoke; padding: 5px 15px; float: left; margin: 20px; box-shadow: 0 8px 16px  0;"><a href="/" style="text-decoration: none;">Home</a></button>
+        <button style="font-family:fantasy; font-size: 15px;  background-color:whitesmoke; padding: 5px 15px; float: right; margin: 20px; box-shadow: 0 8px 16px  0;"><a href="/login" style="text-decoration: none;">Login</a></button>
         <form class="box" style="box-shadow: 0 8px 16px  10px rgba(240, 221, 221, 0.897);" action="/signup" method="POST" autocomplete="off">
             {% with messages = get_flashed_messages() %}
             {% if messages %}
