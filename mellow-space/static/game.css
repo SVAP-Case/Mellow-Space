@@ -1,11 +1,3 @@
-body {
-    
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    color: blue;
-}
-
 .boxl {
     color: #9CA3AF;
     border-radius: 20px;
@@ -17,7 +9,7 @@ body {
 }
 
 .boxr {
-        color: #9CA3AF;
+    color: #9CA3AF;
     border-radius: 20px;
     contain: content;
     background-color: #111827;
@@ -26,14 +18,12 @@ body {
     float: right;
 }
 
-
-
 .header {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-style: oblique;
     font-weight:bolder;
     font-size: 1.8rem;
-    color: black;
+    color: rgb(56, 48, 48);
     text-align: center;
     margin-top: 1em;
 }
