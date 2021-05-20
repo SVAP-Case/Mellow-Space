@@ -13,7 +13,7 @@
     <header class="text-gray-600 body-font">
         <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
             <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
-                <span style="padding: 5px 10px ;background-color: rgb(55, 123, 224); color: whitesmoke;">Welcome, {{ usr }}</span>
+                <span style="padding: 5px 10px ;background-color: rgb(55, 123, 224); color: whitesmoke; border-radius: 5px;">Welcome, {{ usr }}</span>
             </nav>
             <a class="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="current Color" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
@@ -34,7 +34,7 @@
     <section class="text-gray-400 body-font bg-gray-900">
       {% with messages = get_flashed_messages() %}
       {% if messages %}
-      <span style="color: white; background-color: rgb(209, 65, 65); padding: 10px 10px; font-size:smaller; font-family: monospace;">
+      <span style="color: white; background-color: rgb(209, 65, 65); padding: 10px 10px; font-size:smaller; font-family: monospace; border-radius: 5px;">
         {{ messages[0] }}
       </span>
       {% endif %}
@@ -63,8 +63,12 @@
                 </svg>
             </div>
             <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-800">
-              <h2 class="text-lg sm:text-xl text-white font-medium title-font mb-2"><a href="/mailer">Contact our specialists</a></h2>
+              <a href="/mailer"><h2 class="text-lg sm:text-xl text-white font-medium title-font mb-2">Contact our specialists</h2>
               <p class="leading-relaxed text-base mb-4">The link directs you to the space to bring out talents</p>
+                
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg></a>
             </div>
             <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-800">
               <h2 class="text-lg sm:text-xl text-white font-medium title-font mb-2">Multiplayer online games</h2>
