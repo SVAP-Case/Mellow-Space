@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mellow Space</title>
+    <title>Mood Tester</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
@@ -13,8 +12,7 @@
     <header class="text-gray-600 body-font">
         <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
             <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
-                <span style="padding: 5px 10px ;background-color: rgb(55, 123, 224); color: whitesmoke;">Welcome, {{ usr
-                    }}</span>
+                <span style="padding: 5px 10px ;background-color: rgb(55, 123, 224); color: whitesmoke;">Welcome, {{ name }}</span>
             </nav>
             <a class="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="current Color" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
@@ -37,10 +35,9 @@
         <center>
             <br>
             <iframe src="https://greatergood.berkeley.edu/quizzes/embed/stress_and_anxiety" width="85%" scrolling="no" id="iFrameResizer0" style="overflow: hidden; border:0;"></iframe><script type="text/javascript" defer src="https://greatergood.berkeley.edu/quizzes/embedjs"></script>
-            <br>
-        </center>
+        <span style="right: 0; background-color: rgb(91, 201, 190); color: rgb(17, 14, 14); border-radius: 5px; padding: 5px 5px;">Source: Greater Good Science Center - University of California, Berkeley</span><br><br>
+    </center>
     </section>
-
     <footer class="text-gray-600 body-font">
         <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
             <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">

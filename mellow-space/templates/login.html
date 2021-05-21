@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
-        <meta charset="utf-8">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>َLogin</title>
         <link rel="stylesheet" href="../static/login.css">
        <style> footer {
@@ -14,9 +16,9 @@
             </style>
     </head>
     <body>
-        <button style="font-family:fantasy; font-size: 15px; background-color:rgb(2, 0, 2); padding: 5px 15px; float: left; margin: 20px; border-radius: 10px; box-shadow: 0 8px 16px  0;"><a href="/" style="text-decoration: none;">Home</a></button>
-        <button style="font-family:fantasy; font-size: 15px;  background-color:rgb(2, 0, 2); padding: 5px 15px; float: right; margin: 20px; border-radius: 10px; box-shadow: 0 8px 16px  0;"><a href="/signup" style="text-decoration: none;">SignUp</a></button>
-        <form class="box" style="box-shadow: 0 8px 16px 5px rgba(240, 221, 221, 0.897); border-radius: 15px;" action="/login" method="POST" autocomplete="off">
+        <button style="font-family:fantasy; font-size: 15px; background-color:rgb(2, 0, 2); padding: 5px 15px; float: left; margin: 20px; border-radius: 10px; box-shadow: 0 8px 16px  0;"><a href="/" style="text-decoration: none; color: whitesmoke;">Home</a></button>
+        <button style="font-family:fantasy; font-size: 15px; background-color:rgb(2, 0, 2); padding: 5px 15px; float: right; margin: 20px; border-radius: 10px; box-shadow: 0 8px 16px  0;"><a href="/signup" style="text-decoration: none; color: whitesmoke;">SignUp</a></button>
+        <form class="box" style="box-shadow: 0 8px 16px 5px rgba(240, 221, 221, 0.897);" action="/login" method="POST" autocomplete="off">
             {% with messages = get_flashed_messages() %}
             {% if messages %}
             <span style="color: white; background-color: rgb(209, 65, 65); padding: 10px 10px; font-size:smaller; font-family: monospace;">
@@ -25,7 +27,7 @@
             {% endif %}
             {% endwith %}
             <h1>Login</h1>
-            <input type="email" name="em" placeholder="Email" autofocus="">
+            <input type="email" name="em" placeholder="Email" autofocus="" required="required">
             <input type="password" name="pw" placeholder="Password">
             <input type="submit" value="Enter Space">
         </form>

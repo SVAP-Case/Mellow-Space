@@ -24,9 +24,19 @@ class users(db.Model):
     email=db.Column(db.String(100))
     password=db.Column(db.String(100))
 
-@app.route("/")
+@app.route("/",methods=["POST","GET"])
 def home():
-    return render_template("main_page.html")
+    if request.method=="POST":
+        nm=request.form["name"]
+        em=request.form["email"]
+        msg=request.form["message"]
+        feed_mail=Message('Feedback', sender = 'mellow.space.1@gmail.com', recipients = ['prackode@gmail.com'])
+        feed_mail.body="Name: {}\nEmail: {}\nMessage: {}".format(nm,em,msg)
+        mail.send(feed_mail)
+        flash("Thank you for your feedback!")
+        return redirect(url_for("home"))
+    else:
+        return render_template("main_page.html")
 
 @app.route("/login",methods=["POST","GET"])
 def login():
@@ -81,23 +91,44 @@ def user():
 
 @app.route("/mood_test")
 def mood_test():
-    return render_template("mood_tester.html")
+    if "email" in session:
+        email=session["email"]
+        nm=users.query.filter_by(email=email).first()
+        return render_template("mood_tester.html",name=nm.first_name)
+    else:
+        flash("You are not logged in")
+        return redirect(url_for("login"))
 
 @app.route("/music")
 def music():
-    return render_template("music.html")
+    if "email" in session:
+        email=session["email"]
+        nm=users.query.filter_by(email=email).first()
+        return render_template("music.html",name=nm.first_name)
+    else:
+        flash("You are not logged in")
+        return redirect(url_for("login"))
 
 @app.route("/game")
 def game():
-    return render_template("game.html")
+    if "email" in session:
+        email=session["email"]
+        nm=users.query.filter_by(email=email).first()
+        return render_template("game.html",name=nm.first_name)
+    else:
+        flash("You are not logged in")
+        return redirect(url_for("login"))
 
 @app.route("/mailer")
 def mailer():
     email=None
     if "email" in session:
-        em=session["email"]
+        email=session["email"]
+        nm=users.query.filter_by(email=email).first()
+        fname=nm.first_name
+        lname=nm.last_name
         msg = Message('Hello', sender = 'mellow.space.1@gmail.com', recipients = ['prackode@gmail.com'])
-        msg.body = "Hello Flask message sent from Flask-Mail"
+        msg.body = "Hello Sir/Madam,\nMellow Space is an axniety and stress management platform, which is an initiative by _SVAP_Case.\n{} is willing to contact you via Mellow Space for assistance in stress and anxiety.\nYou are requested to contact the mentioned person for further diagnosis. The details are as follows-\nName- {} {} \nE-mail- {}".format(fname,fname,lname,email)
         mail.send(msg)
         flash("Mail Sent Succesfully...")
         return redirect(url_for("user"))
