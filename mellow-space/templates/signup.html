@@ -13,17 +13,17 @@
         <form class="box" style="box-shadow: 0 8px 16px  10px rgba(240, 221, 221, 0.897);" action="/signup" method="POST" autocomplete="off">
             {% with messages = get_flashed_messages() %}
             {% if messages %}
-            <span style="color: white; background-color: rgb(209, 65, 65); padding: 10px 10px; font-size:smaller; font-family: monospace;">
+            <span style="color: white; background-color: rgb(209, 65, 65); padding: 10px 10px; font-size:smaller; font-family: monospace; border-radius: 8px;">
                 {{ messages[0] }}
             </span>
             {% endif %}
             {% endwith %}
             <h1>SignUp</h1>
-            <input type="text" name="nms" placeholder="First Name" autofocus="" required="required">
-            <input type="text" name="nmsl" placeholder="Last Name" autofocus="">
-            <input type="email" name="ems" placeholder="Email" autofocus="" required="required">
-            <input type="password" name="pss" placeholder="Password" pattern=".{8,}" required title="Minimum 8 characters required">
-            <input type="submit" value="Register">
+            <input type="text" name="nms" placeholder="First Name" autofocus="" autocomplete="given-name" required="required">
+            <input type="text" name="nmsl" placeholder="Last Name" autofocus="" autocomplete="given-name">
+            <input type="email" name="ems" placeholder="Email" autofocus="" autocomplete="username" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" required>
+            <input type="password" name="pss" placeholder="Password" autocomplete="current-password" pattern=".{8,}" required title="Minimum 8 characters required">
+            <input type="submit" value="Register" style="border-radius: 9px;">
         </form>
     </body>
 </html>
