@@ -30,7 +30,7 @@ def home():
         nm=request.form["name"]
         em=request.form["email"]
         msg=request.form["message"]
-        feed_mail=Message('Feedback', sender = 'mellow.space.1@gmail.com', recipients = ['prackode@gmail.com'])
+        feed_mail=Message('Feedback', sender = 'mellow.space.1@gmail.com', recipients = ['achintya.20208007@mnnit.ac.in'])
         feed_mail.body="Name: {}\nEmail: {}\nMessage: {}".format(nm,em,msg)
         mail.send(feed_mail)
         flash("Thank you for your feedback!")
@@ -65,12 +65,12 @@ def signup():
         pas=request.form["pss"]
         for l in users.query.all():
             if em==l.email:
-                flash("Account already present..")
+                flash("Account already present.")
                 return redirect(url_for("login"))
         new_user=users(first_name=fname,last_name=lname,email=em,password=generate_password_hash(pas))
         db.session.add(new_user)
         db.session.commit()
-        flash("Account created succesfully..Login now")
+        flash("Account created succesfully")
         return redirect(url_for("login"))
     else:
         if "email" in session:
@@ -127,10 +127,10 @@ def mailer():
         nm=users.query.filter_by(email=email).first()
         fname=nm.first_name
         lname=nm.last_name
-        msg = Message('Hello', sender = 'mellow.space.1@gmail.com', recipients = ['prackode@gmail.com'])
+        msg = Message('Hello', sender = 'mellow.space.1@gmail.com', recipients = ['achintya.20208007@mnnit.ac.in'])
         msg.body = "Hello Sir/Madam,\nMellow Space is an axniety and stress management platform, which is an initiative by _SVAP_Case.\n{} is willing to contact you via Mellow Space for assistance in stress and anxiety.\nYou are requested to contact the mentioned person for further diagnosis. The details are as follows-\nName- {} {} \nE-mail- {}".format(fname,fname,lname,email)
         mail.send(msg)
-        flash("Mail Sent Succesfully...")
+        flash("Mail Sent Succesfully.")
         return redirect(url_for("user"))
     else:
         flash("You are not logged in")
@@ -142,7 +142,7 @@ def logout():
         flash("You have been logged out","info")
         session.pop("email",None)
     else:
-        flash("No user logged in..")
+        flash("No user logged in.")
     return redirect(url_for("login"))
 
 if __name__=="__main__":
