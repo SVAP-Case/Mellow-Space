@@ -4,7 +4,7 @@
 
 Python 3.7.5+ pip package
 
-## Instalation
+## Installation
 
 First, clone this repository
 
